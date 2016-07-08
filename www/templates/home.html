@@ -1,0 +1,40 @@
+<ion-view view-title="{{title}}" hide-back-button="true">
+    <ion-nav-buttons side="left">
+        <button menu-toggle="left" class="button button-icon icon ion-navicon"></button>
+    </ion-nav-buttons>
+
+    <ion-nav-buttons side="right">
+        <a class="color-white" target="_self" ng-click="novaLista()">
+            <i class="icon ion-plus-circled custom-icon-right"></i>
+        </a>
+    </ion-nav-buttons>
+
+    <ion-content>
+        <ion-list class="content ionic-pseudo">
+            <ion-item ng-repeat="lista in listas" class="item item-icon-right item-text-wrap">
+                <span ng-click="redirecionar(lista)" class="input-primary full-width block">
+                    {{lista.Nome}}
+                    <div ng-if="apenasPendentes == true" style="display: -webkit-inline-box">
+                        <span class="span-light-small" ng-if="(lista.Items | filter:Feito==false).length == 1">({{(lista.Items | filter:Feito==false).length}} item)</span>
+                        <span class="span-light-small" ng-if="(lista.Items | filter:Feito==false).length > 1">({{(lista.Items | filter:Feito==false).length}} itens)</span>
+                        <span class="span-light-small" ng-if="(lista.Items | filter:Feito==false).length == 0">(vazio)</span>
+                    </div>
+                    <div ng-if="apenasPendentes == false" style="display: -webkit-inline-box">
+                        <span class="span-light-small" ng-if="lista.Items.length == 1">({{lista.Items.length}} item)</span>
+                        <span class="span-light-small" ng-if="lista.Items.length > 1">({{lista.Items.length}} itens)</span>
+                        <span class="span-light-small" ng-if="lista.Items.length == 0">(vazio)</span>
+                    </div>
+                </span>
+                <a target="_self" ng-click="opcoes(lista)">
+                    <i class="icon ion-compose input-primary color-light"></i>
+                </a>
+            </ion-item>
+        </ion-list>
+
+        <div class="bg-empty color-light" ng-if="listas.length == 0">
+            <i class="icon ion-clipboard"></i>
+            <h1>Você não possui listas</h1>
+        </div>
+
+    </ion-content>
+</ion-view>

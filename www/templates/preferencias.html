@@ -1,0 +1,39 @@
+<ion-view view-title="{{title}}" hide-back-button="true">
+
+    <ion-nav-buttons side="left">
+        <button menu-toggle="left" class="button button-icon icon ion-navicon"></button>
+    </ion-nav-buttons>
+
+    <ion-content>
+        <div class="list">
+
+            <li class="item item-toggle item-text-wrap">
+                Contar apenas itens pendentes na tela de listas
+                <label class="toggle toggle-calm">
+                    <input type="checkbox" ng-click="apenasPendentes(preferencias);" ng-checked="preferencias.ApenasPendentes">
+                    <div class="track">
+                        <div class="handle"></div>
+                    </div>
+                </label>
+            </li>
+            
+            <li class="item item-toggle item-text-wrap">
+                Excluir ao marcar item
+                <label class="toggle toggle-calm">
+                    <input type="checkbox" ng-click="excluirAoMarcar(preferencias);" ng-checked="preferencias.ExcluirAoMarcar">
+                    <div class="track">
+                        <div class="handle"></div>
+                    </div>
+                </label>
+            </li>
+
+            <li class="item item-text-wrap" ng-click="abreListas(idListaPadrao);">
+                Lista padrão
+                <label style="float:right;">
+					{{listaPadrao}}
+				</label>
+            </li>
+
+        </div>
+    </ion-content>
+</ion-view>

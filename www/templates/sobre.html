@@ -1,0 +1,41 @@
+<ion-view view-title="{{title}}">
+    
+    <ion-nav-buttons side="left">
+        <button menu-toggle="left" class="button button-icon icon ion-navicon"></button>
+    </ion-nav-buttons>
+    
+    <div id="about">
+        <ion-content class="about">
+
+            <div class="list">
+
+                <div class="item item-text-wrap">
+                    <img src="img/icon.png" width="80"/>
+                    <h1 class="calm" style="font-size:25px;margin:5px 0 0 0;">Teslo ToDo</h1>
+                </div>
+                
+                <div class="item item-text-wrap">
+                    <h1 class="calm" style="font-size:14px;margin:5px 0 0 0;color:gray !important;">Desenvolvido por:</h1>
+                    <img src="img/teslo_logo.png" />
+                </div>
+
+                <div class="item">
+                    <button class="button icon-left ion-star button-block button-calm" ng-click="avaliar()  ">
+                        Avalie o Teslo ToDo
+                    </button>
+                    <button class="button icon-left ion-play button-block button-balanced" ng-click="maisApps()  ">
+                        Mais Teslo Apps
+                    </button>
+                    <button class="button icon-left ion-home button-block button-dark" ng-click="site()  ">
+                        Teslo Studio Home Page
+                    </button>
+                    
+                    <br>
+                    <span style="font-size:12px;color:gray;">Versão 1.2.2</span>
+                </div>
+
+            </div>
+
+        </ion-content>
+    </div>
+</ion-view>

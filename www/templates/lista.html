@@ -1,0 +1,62 @@
+<ion-view view-title="{{title}}" hide-back-button="false">
+    
+    <ion-nav-bar align-title="left" class="bar-calm">
+        <ion-nav-back-button class="button-clear">
+            <i class="ion-chevron-left icon-custom"></i>
+        </ion-nav-back-button>
+    </ion-nav-bar>
+
+    <ion-nav-buttons side="right">
+        <a class="color-white margin-right" target="_self" ng-click="concluirTodos()">
+            <i class="icon ion-android-done-all" style="font-size:32px;"></i>
+        </a>
+        <a style="color-white" target="_self" ng-click="excluirTodosConcluidos()">
+            <i class="icon ion-trash-b" style="font-size:32px;margin-right:12px;"></i>
+        </a>
+    </ion-nav-buttons>
+
+    <ion-content class="content-list">
+
+        <ion-item class="item-text-wrap item-icon-right item-small">
+            <form ng-submit="adicionar(data.item)">
+                <input type="text" class="input-primary full-width" placeholder="Adicionar item" data-ng-model="data.item">
+                <a target="_self" ng-click="adicionar(data.item)">
+                    <i class="icon ion-plus-circled calm"></i>
+                </a>
+            </form>
+
+        </ion-item>
+
+        <ion-list class="content ionic-pseudo">
+
+            <ion-item ng-repeat="item in items" class="item-checkbox item-text-wrap item-icon-right item-small">
+                <label class="checkbox">
+                    <input type="checkbox" ng-click="marcarDersmarcar(item)" ng-checked="item.Feito == true">
+                </label>
+                <span class="item-checked color-gray" ng-if="item.Feito == true">
+                    <input type="text" class="input-primary full-width color-gray" ng-model="item.Nome" readonly>
+                </span>
+                <span ng-if="item.Feito == false">
+                    <input type="text" class="input-primary full-width" ng-model="item.Nome" ng-blur="editar(item, item.Nome)">
+                </span>
+
+                <a target="_self" ng-click="excluir(item)">
+                    <i class="icon ion-trash-b input-primary color-light"></i>
+                </a>
+            </ion-item>
+
+        </ion-list>
+
+        
+        <div class="bg-empty color-light" ng-if="items.length == 0">
+            <i class="icon ion-happy"></i>
+            <h1>Parabéns!<br />Você não possui itens pendentes</h1>
+        </div>
+
+    </ion-content>
+
+    <ion-footer-bar class="bar-light footer" ng-if="items.length > 0">
+        <p class="title">Total: {{items.length}}</p>
+        <p class="title">Pendentes: {{(items|filter:Feito == false).length}}</p>
+    </ion-footer-bar>
+</ion-view>
