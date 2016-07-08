@@ -1,1 +1,1 @@
-"# teslo-todo" 
+Aplicativo de listas simples utilizando Ionic Framework
